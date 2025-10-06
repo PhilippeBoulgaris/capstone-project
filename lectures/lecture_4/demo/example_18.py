@@ -1,0 +1,2 @@
+L=[9,6,0,3]
+print(sorted(L))

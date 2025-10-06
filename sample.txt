@@ -1,0 +1,4 @@
+Python is a powerful programming language.
+It is widely used in web development, data science, and automation.
+Python's simple syntax makes it great for beginners.
+Many companies use Python for their projects.
