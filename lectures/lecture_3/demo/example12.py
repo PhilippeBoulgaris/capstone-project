@@ -9,3 +9,6 @@ else:
     if cube < 0:
         guess = -guess
     print('Cube root of '+str(cube)+' is '+str(guess))
+
+    s = "abcd"
+    prints[1]

@@ -13,3 +13,7 @@ lst = ["Suzuki","Kawasaki","Aprilia","Ducati"]
 #     print(i,lst[i])
 for (i,item) in enumerate(lst):
     print(i,item)
+
+for i in range(5,17) :
+    sum = i
+print(sum)

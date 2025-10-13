@@ -1,7 +1,9 @@
 x = dict(a=1, b=2, c='three')
-x = {'a': 1, 'b': 2, 'c': 'three'}
+x = {'a': 1, 'b': 2, 'c': 'three', 'Salut' : 4}
 print(x)
 print("----")
+x['Salut'] == 3
+print(x)
 
 # access via []
 x['a'] == 1
