@@ -10,6 +10,12 @@ It is offered at HEC Lausanne during the Fall Semester 2025 (Monday, September 1
 
 ---
 
+## Course Website
+
+* [Course Website](https://ap-unil-2025.github.io/course-materials/)
+
+---
+
 ## Course Objectives  
 
 By the end of this course, you should be able to: 
@@ -115,7 +121,9 @@ Witness the incredible transformation of a programmer throughout the course, fro
     - Topics:
       - [Selected Topics on Object Oriented Programming](lectures/lecture_6/slides/Advanced_Programming_2025_lecture_6b.pdf) 
       - [Selected Topics on Python Classes and Inheritance](lectures/lecture_6/slides/Advanced_Programming_2025_lecture_6c.pdf) 
-      - [Basics on Program Efficiency](lectures/lecture_6/slides/Advanced_Programming_2025_lecture_6c.pdf) 
+      - [Recap of the Python Fundamentals (I-III)](lectures/lecture_6/demo/Python_Fundamentals_Recap.ipynb)       
+      - [A complete Python Refresher (take-home materials)](python_refresher)       
+      - [Basics on Program Efficiency (take-home materials)](lectures/lecture_6/slides/Advanced_Programming_2025_lecture_6c.pdf) 
       - [A preview on Libraries (take-home materials)](lectures/lecture_6/slides/Advanced_Programming_2025_lecture_6c.pdf)
       - [Productivity: Basics on Testing and Debugging (take-home materials)](lectures/lecture_6/slides/Advanced_Programming_2025_lecture_6a.pdf)
       - [Productivity: Basics on Testing and Debugging -- Notebook (take-home materials)](lectures/lecture_6/demo/debugging.ipynb)
@@ -125,7 +133,6 @@ Witness the incredible transformation of a programmer throughout the course, fro
 ### Part II: Basics of Data Science (Weeks 7–12)  
 
 **Week 7 (Oct 27): Linear Regression** 
-
 * [Lecture slides, week 7](lectures/lecture_8/slides) 
     - Topics:
       - [Supervised Learning - the general idea](lectures/lecture_7/slides/Advanced_Programming_2025_lecture_7.pdf)
@@ -134,37 +141,25 @@ Witness the incredible transformation of a programmer throughout the course, fro
       - Polynomial Regression 
       - Tuning Model Complexity
       - [Stock Market Prediction (if time permits)](lectures/lecture_7/slides/Stock_prediction_ML_Lecture7.ipynb)        
-      - [Introduction to Pandas (quick tour; self-study)](lectures/lecture_7/demo/python_refresher/pandas.ipynb)
+      - [Introduction to Pandas (quick tour; self-study)](lectures/lecture_7/demo/pandas.ipynb)
       - Further Reading: ISL Ch. 3, 5, 6. 
       - Further Reading: PML Ch. 6.3–6.5 (Bayesian linear regression, uncertainty, model comparison), Ch. 7.1–7.3 (Overfitting, generalization, cross-validation), PML Ch. 6.6 (Regularization as priors: ridge ↔ Gaussian, Lasso ↔ Laplace)
 
 **Week 8 (Nov 3): Classification**
-
 * [Lecture slides, week 8](lectures/lecture_8/slides) 
     - Topics:
       - [Supervised Learning: Classification](lectures/lecture_8/slides/Advanced_Programming_2025_lecture_8.pdf)
       - k-Nearest-Neighbours
       - How to evaluate Classifiers
-      - Naive Bayes
+      - [Logistic Regression](lectures/lecture_8/demo/01_Intro_Classification_Logistic.ipynb)
+      - Naive Bayes (self-study)
       - Decision Trees 
       - Combining Models (Boosting, Bagging -- if time permits) 
       - Further Reading: ISL Ch. 4, Ch. 8, 
       - Further Reading: PML Ch. 8.1–8.4 (Logistic regression, generative vs discriminative classifiers), PML Ch. 8.5 (Bayesian logistic regression, optional) 
 
-**Week 9 (Nov 10): Unsupervised Machine Learning** 
-* [Lecture slides, week 9](lectures/lecture_9/slides/Advanced_Programming_2025_lecture_9.pdf) 
-    - Topics:
-      - k-Means
-      - Gaussian Mixture Models 
-      - Expectation Maximization 
-      - [Principal Component Analysis](lectures/lecture_9/demo/PCA_Intro_Lecture_9.ipynb)
-      - Hierarchical Clustering
-      - Density-based Clustering 
-      - Further Reading: ISL Ch. 10 
-      - Further Reading: PML Ch. 10.1–10.4 (PCA as latent factor model), PML Ch. 11.1–11.3 (Clustering, mixture models, EM algorithm) 
-
-**Week 10 (Nov 17): Deep Learning Primer** 
-* [Lecture slides, week 10](lectures/lecture_10/slides/Advanced_Programming_2025_lecture_10.pdf)
+**Week 9 (Nov 10): Deep Learning Primer (I)** 
+* [Lecture slides, week 9](lectures/lecture_9/slides/Advanced_Programming_2025_lecture_9.pdf)
     - Topics:
       - Deep learning basics
       - Multi-layer perceptron 
@@ -172,12 +167,34 @@ Witness the incredible transformation of a programmer throughout the course, fro
       - Network training - SGD
       - Error back-propagation
       - Some notes on overfitting
-      - [Introduction to Tensorflow, applied to supervised machine learning problems](lectures/lecture_10/demo/03_Gentle_DNN.ipynb)
+      - [Introduction to Tensorflow, applied to supervised machine learning problems (Regression)](lectures/lecture_9/demo/03_Gentle_DNN.ipynb)
       - Further Reading: ISL Ch. 10 
       - Further Reading: PML Ch. 16 (Neural networks), PML Ch. 17 (Deep learning, optimization & generalization) 
-
-**Week 11 (Nov 24): Best Practices in Data Science** 
-* [Lecture slides, week 11](lectures/lecture_11/demo)
+      
+**Week 10 (Nov 17): Deep Learning Primer (II)**       
+* [Lecture slides, week 10](lectures/lecture_10/slides/Advanced_Programming_2025_lecture_10.pdf) 
+    - Topics:
+        - [Warm-up with Tensorflow: Approximate analytical functions](lectures/lecture_10/demo/approx_analytical_function.ipynb)   
+        - [Introduction to Tensorflow, applied to supervised machine learning problems (classification)](lectures/lecture_9/demo/03_Gentle_DNN.ipynb)
+        - [Introduction to PyTorch, applied to supervised machine learning problems (if time permits)](lectures/lecture_10/demo/Intro_to_PyTorch.ipynb)
+        - [Introduction to Deep Learning for Sequence Modeling (Recurrent Neural Networks, LSTMs, and a first glimpse into self-attention)](lectures/lecture_10/slides/Advanced_Programming_2025_lecture_10.pdf)
+        - [LSTMs applied to Ozone time series data, and stock prices (I)](lectures/lecture_10/demo/05_RNN_intro.ipynb)
+        - [Neural Architecture Search: A concrete example](lectures/lecture_10/demo/simple_nas_random_search_10d.ipynb)
+      
+**Week 11 (Nov 24): Unsupervised Machine Learning**       
+* [Lecture slides, week 11](lectures/lecture_11/slides/Advanced_Programming_2025_lecture_11.pdf) 
+    - Topics:
+      - k-Means
+      - Gaussian Mixture Models 
+      - Expectation Maximization 
+      - [Principal Component Analysis - Slides](lectures/lecture_11/slides/Advanced_Programming_2025_lecture_11b.pdf)
+      - [Principal Component Analysis - Notebook (if time permits)](lectures/lecture_11/demo/PCA_Intro_Lecture_11.ipynb)
+      - Hierarchical Clustering (if time permits)
+      - Density-based Clustering (if time permits)
+      - Further Reading: ISL Ch. 10 
+      - Further Reading: PML Ch. 10.1–10.4 (PCA as latent factor model), PML Ch. 11.1–11.3 (Clustering, mixture models, EM algorithm)       
+*  ** Illustration of a Complete Project ** (14:00 - 16:00, by Anna Smirnova)
+*  **Recap, if time permits: Best Practices in Data Science**      
     - Topics:
       - [A Grand Tour Over the Key Data Science Libraries](lectures/lecture_11/demo/Grand_Tour.ipynb)
         - [Numpy (if time permits)](lectures/lecture_11/demo/numpy.ipynb)

@@ -1,0 +1,101 @@
+================================================================================
+CAPSTONE PROJECT - UNIFIED REPORT
+================================================================================
+
+Execution date: 2025-11-23 14:02:04
+Universe: 52 stocks (50 US + 2 Swiss)
+Benchmark: ^GSPC
+Period: 2010-01-01 → 2025-11-01 (191 months)
+Prediction horizon: 12 months
+
+================================================================================
+1. VALUE vs GROWTH ANALYSIS
+================================================================================
+
+VALUE Portfolio (Q1): 6 stocks
+GROWTH Portfolio (Q10): 6 stocks
+
+Overall performance:
+  VALUE  : CAGR=6.80%, Sharpe=0.41, MaxDD=-27.54%
+  GROWTH : CAGR=31.61%, Sharpe=1.09, MaxDD=-45.65%
+  MARKET : CAGR=13.59%, Sharpe=0.86, MaxDD=-23.83%
+
+================================================================================
+2. MACHINE LEARNING MODELS
+================================================================================
+
+Regression (predicting average returns from value score):
+  Linear Regression         : R²=0.1654, RMSE=0.010603
+  Ridge (α=1.0)             : R²=0.1569, RMSE=0.010657
+  Lasso (α=0.01)            : R²=-0.1073, RMSE=0.012213
+
+Classification (high vs low performers):
+  Decision Tree             : Accuracy=0.6364
+  Random Forest             : Accuracy=0.5455
+
+Future returns prediction (12 months):
+  Ridge Regression : RMSE=0.24945, R²=0.0681
+  Logistic (outperf.) : Accuracy=0.588, AUC=0.607
+
+Neural Network (MLP):
+  Test MAE=0.19295, R²=-0.0048
+
+================================================================================
+3. CLUSTERING & DIMENSIONALITY REDUCTION
+================================================================================
+
+K-Means: 3 clusters identified
+PCA: PC1 explains 58.6%, PC2 explains 37.1%
+     Total variance explained: 95.8%
+
+================================================================================
+4. MARKET REGIME ANALYSIS
+================================================================================
+
+CALM regime: 67 months (volatility < median)
+CRISIS regime: 56 months (volatility > median)
+
+Performance by regime:
+  VALUE_calm           : N= 67, CAGR=  6.66%, Vol= 12.61%, Sharpe=  0.53
+  VALUE_crisis         : N= 56, CAGR=  6.51%, Vol= 20.31%, Sharpe=  0.32
+  GROWTH_calm          : N= 67, CAGR= 28.46%, Vol= 23.12%, Sharpe=  1.23
+  GROWTH_crisis        : N= 56, CAGR= 34.91%, Vol= 34.30%, Sharpe=  1.02
+  MARKET_calm          : N= 67, CAGR= 13.33%, Vol= 10.87%, Sharpe=  1.23
+  MARKET_crisis        : N= 56, CAGR= 13.36%, Vol= 20.19%, Sharpe=  0.66
+
+================================================================================
+5. KEY INSIGHTS
+================================================================================
+
+✓ Valuation ratios show significant correlation with each other
+✓ Value scores vary significantly across sectors
+✓ VALUE strategy underperformed the market
+✓ GROWTH strategy outperformed the market
+✓ Performance varies significantly across market regimes
+
+⚠️  LIMITATIONS:
+   - Current fundamental ratios applied to entire history (no time series)
+   - Monthly data limits precision of entry/exit points
+   - Simplified transaction costs (flat 20bps)
+   - No dynamic portfolio rebalancing
+   - Potential survivorship bias (currently listed stocks)
+
+================================================================================
+6. FILES GENERATED
+================================================================================
+
+  ✓ backtest_with_regimes_20251123_140103.png
+  ✓ classification_results_20251123_140103.csv
+  ✓ eda_analysis_20251123_140103.png
+  ✓ equity_curves_20251123_140103.csv
+  ✓ model_comparison_20251123_140103.png
+  ✓ nn_training_20251123_140103.png
+  ✓ nn_training_history_20251123_140103.csv
+  ✓ pca_clusters_20251123_140103.png
+  ✓ regime_analysis_20251123_140103.csv
+  ✓ regime_comparison_20251123_140103.png
+  ✓ regression_results_20251123_140103.csv
+
+================================================================================
+END OF REPORT
+================================================================================
