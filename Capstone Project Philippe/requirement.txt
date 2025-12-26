@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+scipy
+scikit-learn
+joblib
+requests
+yfinance
+python-dateutil
+tqdm
+pytest
+pytest-cov

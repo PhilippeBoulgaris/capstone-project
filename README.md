@@ -220,19 +220,19 @@ Witness the incredible transformation of a programmer throughout the course, fro
       - Concepts of distributed memory parallelization
       - Hybrid parallelization
 
-**Week 13 (Dec 8): High-Performance Computing with Python** 
-* Lecture slides, week 13: Concepts of accelerating codes in practice, and shared memory parallelization; slides 1-12 of [this lecture](lectures/lecture_12/slides/Advanced_Programming_2025_lecture_12.pdf).
+**Week 13 (Dec 8): High-Performance Computing with Python**
+* [Lecture slides, week 13](lectures/lecture_13/slides/Advanced_Programming_2025_lecture_13.pdf)
     - Topics:
-      - [Python for Scientific Computing - the general idea](lectures/lecture_13/demo/scientific_computing_in_python.ipynb)
-      - [Numba (Numba is an open source JIT compiler that translates a subset of Python and NumPy code into fast machine code)](lectures/lecture_13/demo/numba.ipynb)
-      - [Parallelization/multi-threading](lectures/lecture_13/demo/parallelization.ipynb)
-      - [Multi-threading (if time permits)](lectures/lecture_13/demo/multithreading.ipynb)        
-      - [Jax and Flax (self-study)](lectures/lecture_13/demo/introduction_to_JAX.ipynb)
+      - [Why Parallelism Matters](lectures/lecture_13/demo/01_motivation.ipynb) - Amdahl's Law, Monte Carlo option pricing
+      - [Threading for I/O-Bound Tasks](lectures/lecture_13/demo/02_threading_io_bound.ipynb) - GIL, `ThreadPoolExecutor`
+      - [Multiprocessing for CPU-Bound Tasks](lectures/lecture_13/demo/03_multiprocessing_cpu_bound.ipynb) - `ProcessPoolExecutor`, VaR
+      - [Finance Applications](lectures/lecture_13/demo/04_finance_applications.ipynb) - Backtesting, bootstrap, correlations
+      - [Projects and Best Practices](lectures/lecture_13/demo/05_project_exercises.ipynb) - Common pitfalls, mini-projects
 
 **Week 14 (Dec 15): Capstone Project Presentations** 
     - Topics:
       - Students voluntarily present their projects 
-      - Wrap-up and course summary 
+      - [Wrap-up and course summary](lectures/lecture_14/slides/Advanced_Programming_2025_lecture_14.pdf) 
 
 ![Young Enthusiastic Professor](./fig/programming_wrapup.png)
 
