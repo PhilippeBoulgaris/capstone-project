@@ -9,7 +9,7 @@ import pandas as pd
 
 @dataclass
 class Paths:
-    # dossier de sortie dans la racine du projet
+    # output
     base_out_dir_name: str = "backtest_fundamentals_only_results"
 
     def __post_init__(self):
