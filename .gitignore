@@ -4,3 +4,4 @@ __pycache__/
 sec_cache/
 data/
 .ipynb_checkpoints/
+.nuvolos

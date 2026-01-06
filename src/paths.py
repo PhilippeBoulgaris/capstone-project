@@ -10,10 +10,10 @@ import pandas as pd
 @dataclass
 class Paths:
     # output
-    base_out_dir_name: str = "backtest_fundamentals_only_results"
+    base_out_dir_name: str = "results"
 
     def __post_init__(self):
-        # .../capstone_project/src/paths.py -> .../capstone_project
+        # .../capstone_project/src/paths.py -> ../capstone_project
         project_root = Path(__file__).resolve().parents[1]
         self.base_out_dir = str(project_root / self.base_out_dir_name)
 

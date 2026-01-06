@@ -85,7 +85,7 @@ class MLDatasetBuilderPanel:
         impute: bool = True,
         verbose: bool = True,
     ) -> pd.DataFrame:
-        print("\n[3bis/??] Building ML dataset (SEC fundamentals panel)...")
+        print("\n[3bis/9] Building ML dataset (SEC fundamentals panel)...")
 
         if feature_panel is None or feature_panel.empty:
             print("⚠️ SEC feature_panel empty -> SEC ML dataset empty.")

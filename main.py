@@ -28,7 +28,7 @@ from src.sec_style import compute_sec_value_score, build_sec_style_weights  # gr
 
 
 def _slice_oos_and_rebase(s: pd.Series | None, split_dt: pd.Timestamp) -> pd.Series | None:
-    """Keep only OOS window [split_dt, ...] and rebase to 1 at split."""
+    """Keep only OOS windoww [split_dt, ...] and rebase to 1 at split."""
     if s is None:
         return None
     s2 = s.dropna().copy()
@@ -357,21 +357,7 @@ def main():
 
     split_dt = pd.to_datetime(cfg.TRAIN_TEST_SPLIT)
 
-    # (0) Keep "ALL" plot (optional / appendix)
-    curves_all = {
-        "VALUE (Yahoo snapshot)": eq_val,
-        "GROWTH (Yahoo snapshot)": eq_gro,
-        "EW (All Stocks)": eq_ew,
-        "S&P 500 (Benchmark)": eq_bench,
-        "RANDOM (single run)": eq_rnd,
-    }
-    if eq_val_sec is not None:
-        curves_all["VALUE (SEC as-of)"] = eq_val_sec
-    curves_all.update(eq_ml)
-
-    viz.plot_equity_curves(curves_all, f"equity_ALL_{ts}.png",
-                           "Equity Curves — All Strategies (Fundamentals Only)")
-    print("✓ Equity curves (ALL) saved")
+    
 
     # (A) Value vs Growth — OOS + rebased @ split (clean)
     curves_vg_oos = _prep_curves_oos({
@@ -440,3 +426,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+#end of the program !
