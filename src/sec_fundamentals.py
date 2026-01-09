@@ -200,16 +200,26 @@ class SECFundamentalsBuilder:
         return out
 
     def annual_to_monthly_panel(self, annual: pd.DataFrame, month_index: pd.DatetimeIndex) -> pd.DataFrame:
+        """
+        Build an as-of monthly panel:
+        - annual FY observations become available at (fye_end + SEC_LAG_DAYS)
+        - for each month-end date d, we take the latest observation with available_from <= d
+        """
         if annual is None or annual.empty:
             return pd.DataFrame()
 
+        # ✅ Normalize month_index to month-end, tz-naive, sorted (critical for alignment with returns)
+        mi = pd.DatetimeIndex(pd.to_datetime(month_index)).tz_localize(None)
+        mi = mi.to_period("M").to_timestamp("M")
+        mi = mi.sort_values()
+
         a = annual.copy()
-        a["fye_end"] = pd.to_datetime(a["fye_end"], errors="coerce")
+        a["fye_end"] = pd.to_datetime(a["fye_end"], errors="coerce").dt.tz_localize(None)
         a = a.dropna(subset=["fye_end"])
         if a.empty:
             return pd.DataFrame()
 
-        a["available_from"] = a["fye_end"] + pd.Timedelta(days=int(self.cfg.SEC_LAG_DAYS))
+        a["available_from"] = (a["fye_end"] + pd.Timedelta(days=int(self.cfg.SEC_LAG_DAYS))).dt.tz_localize(None)
         a = a.sort_values(["ticker", "available_from"])
 
         panel_rows = []
@@ -218,7 +228,7 @@ class SECFundamentalsBuilder:
             if sub.empty:
                 continue
 
-            for d in month_index:
+            for d in mi:
                 eligible = sub[sub["available_from"] <= d]
                 if eligible.empty:
                     continue
@@ -230,6 +240,6 @@ class SECFundamentalsBuilder:
             return pd.DataFrame()
 
         panel = pd.DataFrame(panel_rows)
-        panel["date"] = pd.to_datetime(panel["date"], errors="coerce")
+        panel["date"] = pd.to_datetime(panel["date"], errors="coerce").dt.tz_localize(None)
         panel = panel.sort_values(["ticker", "date", "available_from"]).drop_duplicates(["ticker", "date"], keep="last")
         return panel

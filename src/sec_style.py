@@ -1,9 +1,15 @@
 # src/sec_style.py
 # -*- coding: utf-8 -*-
 
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Optional
 import numpy as np
 import pandas as pd
+
+
+def _to_month_end(s: pd.Series) -> pd.Series:
+    d = pd.to_datetime(s, errors="coerce")
+    d = d.dt.tz_localize(None)
+    return d.dt.to_period("M").dt.to_timestamp("M")
 
 
 def _zscore_series(s: pd.Series) -> pd.Series:
@@ -72,23 +78,28 @@ def build_sec_style_weights(
     allowed_tickers: Optional[List[str]] = None,
 ) -> Dict[pd.Timestamp, Dict[str, float]]:
     """
-    Monthly weights dict: at each date d, pick top top_percentile by score
-    and hold for next month.
+    Monthly weights dict:
+    - keys are decision dates (month-end)
+    - weights decided at d are applied to returns at d_next (handled in PerformanceAnalyzer)
     """
     if sec_scored is None or sec_scored.empty:
         return {}
 
     p = sec_scored.copy()
-    p["date"] = pd.to_datetime(p["date"], errors="coerce")
+    p["date"] = _to_month_end(p["date"])
+    p["ticker"] = p["ticker"].astype(str)
     p = p.dropna(subset=["date", "ticker"])
+
     if allowed_tickers is not None:
         p = p[p["ticker"].isin(set(allowed_tickers))].copy()
 
     if p.empty or score_col not in p.columns:
         return {}
 
-    weights = {}
-    for d, cs in p.groupby("date"):
+    p = p.sort_values(["date", "ticker"]).reset_index(drop=True)
+
+    weights: Dict[pd.Timestamp, Dict[str, float]] = {}
+    for d, cs in p.groupby("date", sort=True):
         cs = cs.dropna(subset=[score_col])
         if cs.empty:
             continue
@@ -100,6 +111,7 @@ def build_sec_style_weights(
         if len(tick_list) == 0:
             continue
 
-        weights[d] = {t: 1.0 / len(tick_list) for t in tick_list}
+        d_ts = pd.Timestamp(d).to_period("M").to_timestamp("M")
+        weights[d_ts] = {t: 1.0 / len(tick_list) for t in tick_list}
 
     return weights
