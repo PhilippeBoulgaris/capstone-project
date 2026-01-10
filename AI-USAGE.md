@@ -4,7 +4,7 @@ This project was developed with assistance from AI tools.
 
 ## Tools
 - ChatGPT (OpenAI): used for code suggestions, writing assistance, and English rephrasing (non-native English).
-- Claude (Anthropic): used to discuss broader issues when multiple parts of the codebase were interrelated.
+
 
 ## How AI was used
 AI assistance was used to:
