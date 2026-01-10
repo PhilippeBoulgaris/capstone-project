@@ -18,7 +18,6 @@ AI assistance was used to:
 ## Human verification
 All AI-suggested changes were reviewed and validated by the author by:
 - Running the full pipeline end-to-end
-- Checking unit/integration tests (when available)
 - Verifying that outputs, metrics, and plots were consistent with the intended methodology
 
 ## What AI did NOT do (non-exhaustive)
